@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Search Results for Kites
+
+  .container-fluid
+    .row
+      each kite in results
+        .col-2
+          h5 Kite Color: #{kite.kite_color}
+          p Material: #{kite.material}
+          p Length: #{kite.length} meters
+

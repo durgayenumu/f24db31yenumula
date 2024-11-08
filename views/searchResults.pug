@@ -1,0 +1,16 @@
+extends layout
+ 
+block content
+  h1= title
+  p Welcome to #{title}
+ 
+  // Loop through results and create a div for each item
+  each item, index in results
+    div(class="result" onclick=`buy(${index})`)
+      p #{item.name} - ID: #{item.id}
+ 
+  script.
+    // Define the buy function
+    function buy(index) {
+      alert(`You purchased item ${index + 1}`);
+    }

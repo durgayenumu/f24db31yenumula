@@ -1,0 +1,13 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.col-sm-2 {
+  display: inline-block;
+  width: 16.666%; /* Adjust percentage for spacing */
+}

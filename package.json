@@ -1,0 +1,20 @@
+{
+  "name": "f24wb31yenumula",
+  "version": "1.2.3",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "^4.3.7",
+    "express": "^4.21.1",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.3"
+  },
+  "description": "simple express generator",
+  "main": "app.js",
+  "author": "Venkata Durga Yenumula",
+  "license": "ISC"
+}
