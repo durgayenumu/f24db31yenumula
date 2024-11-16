@@ -1,3 +1,16 @@
+//- extends layout
+
+//- block content
+//-   h1 Search Results for Kites
+
+//-   .container-fluid
+//-     .row
+//-       each kite in results
+//-         .col-2
+//-           h5 Kite Color: #{kite.kite_color}
+//-           p Material: #{kite.material}
+//-           p Length: #{kite.length} meters
+
 extends layout
 
 block content
@@ -5,9 +18,18 @@ block content
 
   .container-fluid
     .row
-      each kite in results
-        .col-2
-          h5 Kite Color: #{kite.kite_color}
-          p Material: #{kite.material}
-          p Length: #{kite.length} meters
+      each item in results
+        div.col-sm-3
+          h3 #{item.kite_color}
+          p Material: #{item.material}
+          p Length: #{item.length}
+          a(href=`/kites/${item._id}`) Inspect
+          a(href=`/kites/${item._id}/update`) Update
+          a(href=`/kites/${item._id}/delete`) Delete
+  
+  a(href='/kites/create') Add New Kite
 
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index}`);
+    }
