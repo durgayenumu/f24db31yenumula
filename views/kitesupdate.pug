@@ -1,0 +1,53 @@
+ extends layout
+
+block content
+    h1 Kite Update
+
+    if (toShow == null)
+        h2 No instance found to update
+    else
+        - let kiteid = toShow._id
+        - let kite_color = toShow.kite_color
+        - let material = toShow.material
+        - let length = toShow.length
+
+        div.row.mb-3
+            div.mr-1.font-weight-bold ID is:
+            div #{kiteid}
+
+        - let actionid = "/resource/kites/" + kiteid
+        form(id='kitesForm', action=actionid, method="PUT")
+            div.form-group
+                label.kiteAttr(for='kite_color') Kite Color:
+                input#name(type='text', name='kite_color', value=name, class='form-control')
+            div.form-group
+                label.kiteAttr(for='material') Kite Material:
+                input#material(type='text', name='material', value=kitesmaterial, class='form-control')
+            div.form-group
+                label.kiteAttr(for='length') Kite Length:
+                input#length(type='text', name='length', value=kiteslength, class='form-control')
+            input(type="submit", class="btn btn-primary mt-2")
+
+        button(class="btn btn-secondary mt-2 ml-2" onclick="goBack()") Cancel
+
+    script.
+        function goBack() {
+            window.location.href = "/kites";
+        }
+
+    script.
+        document.forms['kitesForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            fetch(event.target.action, {
+                method: 'PUT',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+            })
+            .then((resp) => resp.json())
+            .then((body) => {
+                alert("Update succeeded");
+                window.location.href = "/kites";
+            })
+            .catch((error) => {
+                alert("Update failed " + error);
+            });
+        });

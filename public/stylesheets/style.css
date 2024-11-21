@@ -11,3 +11,9 @@ a {
   display: inline-block;
   width: 16.666%; /* Adjust percentage for spacing */
 }
+
+.kiteAttr {
+  background-color: aquamarine;
+  width: 120px;
+  font-weight: bold;
+  }

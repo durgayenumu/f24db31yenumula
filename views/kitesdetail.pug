@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    h1 Kite Detail
+
+    if (toShow == null)
+        h2 No instance found
+    else
+        - let kiteid = toShow._id
+        - let kite_color = toShow.kite_color
+        - let material = toShow.material
+        - let length = toShow.length
+
+        div(class="mb-3")
+            div.row.mb-2
+                div(class='kiteAttr mr-3 font-weight-bold') Kite ID:
+                div #{kiteid}
+            div.row.mb-2
+                div(class='kiteAttr mr-3 font-weight-bold') Kite Color:
+                div #{kite_color}
+            div.row.mb-2
+                div(class='kiteAttr mr-3 font-weight-bold') Kite Material:
+                div #{material}
+            div.row.mb-2
+                div(class='kiteAttr mr-3 font-weight-bold') Kite Length:
+                div #{length}
+
+        button(class="btn btn-secondary mt-3" onclick="goBack()") Go Back
+
+    script.
+        function goBack() {
+            window.location.href = "/kites";
+        }
