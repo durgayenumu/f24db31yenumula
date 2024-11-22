@@ -12,24 +12,25 @@
 //-           p Length: #{kite.length} meters
 
 extends layout
-
+ 
 block content
-  h1 Search Results for Kites
-
-  .container-fluid
-    .row
-      each item in results
-        div.col-sm-3
-          h3 #{item.kite_color}
-          p Material: #{item.material}
-          p Length: #{item.length}
-          a(href=`/kites/${item._id}`) Inspect
-          a(href=`/kites/${item._id}/update`) Update
-          a(href=`/kites/${item._id}/delete`) Delete
-  
-  a(href='/kites/create') Add New Kite
-
+  h1= title
+  p #{title} page is running by Venkata Durga Yenumula 
+  - let items = results
+  div(class="container-fluid")
+    div(class="col m-1")
+      each item in items
+        - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
+        - let destination1 = `dispatch(\"/resource/detail?id=${item._id}\")`
+        - let destination2 = `dispatch(\"/resource/delete?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.kite_color}(#{item.material}) is #{item.length}
+        button.btn( class="btn-primary m-1", onclick= destination) Update
+        br
+        br
+       
   script.
-    function buy(index) {
-      alert(`You purchased item ${index}`);
+    function dispatch(path){
+      window.location.href=path
     }
+
+  
