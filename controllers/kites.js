@@ -138,9 +138,9 @@ exports.kite_create_post = async function (req, res) {
 };
 
 
-exports.kite_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: Kite delete DELETE ' + req.params.id);
-};
+// exports.kite_delete = function (req, res) {
+//     res.send('NOT IMPLEMENTED: Kite delete DELETE ' + req.params.id);
+// };
 
 //put one update
 // Kite controller (controllers/kites.js)

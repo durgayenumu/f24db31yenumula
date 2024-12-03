@@ -20,9 +20,9 @@ block content
   div(class="container-fluid")
     div(class="col m-1")
       each item in items
-        - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
-        - let destination1 = `dispatch(\"/resource/detail?id=${item._id}\")`
-        - let destination2 = `dispatch(\"/resource/delete?id=${item._id}\")`
+        - let destination = `dispatch(\"/kites/update?id=${item._id}\")`
+        - let destination1 = `dispatch(\"/kites/detail?id=${item._id}\")`
+        - let destination2 = `dispatch(\"/kites/delete?id=${item._id}\")`
         div(class="row-sm-2", class="m-1") Item #{item.kite_color}(#{item.material}) is #{item.length}
         button.btn( class="btn-primary m-1", onclick= destination) Update
         br
