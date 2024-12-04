@@ -26,6 +26,14 @@
 var express = require('express');
 var router = express.Router();
 var kite_controller = require('../controllers/kites');
+// A little function to check if we have an authorized user and continue on or
+// redirect to login.
+const secured = (req, res, next) => {
+if (req.user){
+return next();
+}
+res.redirect("/login");
+}
 
 router.get('/', kite_controller.kite_list);
 
@@ -45,7 +53,7 @@ router.get('/detail', kite_controller.kite_view_one_Page);
 
 router.get('/create', kite_controller.kite_create_Page);
 
-router.get('/update', kite_controller.kite_update_Page);
+router.get('/update',secured, kite_controller.kite_update_Page);
 
 router.get('/delete', kite_controller.kite_delete_Page);
 
