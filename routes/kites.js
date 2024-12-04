@@ -51,10 +51,10 @@ router.get('/kites:id', kite_controller.kite_detail);
 
 router.get('/detail', kite_controller.kite_view_one_Page);
 
-router.get('/create', kite_controller.kite_create_Page);
+router.get('/create',secured, kite_controller.kite_create_Page);
 
 router.get('/update',secured, kite_controller.kite_update_Page);
 
-router.get('/delete', kite_controller.kite_delete_Page);
+router.get('/delete',secured, kite_controller.kite_delete_Page);
 
 module.exports = router;

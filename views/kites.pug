@@ -24,7 +24,10 @@ block content
         - let destination1 = `dispatch(\"/kites/detail?id=${item._id}\")`
         - let destination2 = `dispatch(\"/kites/delete?id=${item._id}\")`
         div(class="row-sm-2", class="m-1") Item #{item.kite_color}(#{item.material}) is #{item.length}
-        button.btn( class="btn-primary m-1", onclick= destination) Update
+      
+        button.btn.btn-primary.ml-1(onclick=`dispatch('/kites/update?id=${item._id}')`) Update
+        button.btn.btn-primary.ml-1(onclick=`dispatch('/kites/detail?id=${item._id}')`) Detail
+        button.btn.btn-primary.ml-1(onclick=`dispatch('/kites/delete?id=${item._id}')`) Delete
         br
         br
        
